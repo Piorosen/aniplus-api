@@ -109,7 +109,7 @@ namespace aniplus_api
         public SexRateResult[] GetSexRateInformation(int contentSerial)
         {
             WebClient wc = new WebClient();
-            var result = wc.DownloadString($"https://api.aniplustv.com:3100/stillcut?contentSerial={contentSerial}");
+            var result = wc.DownloadString($"https://api.aniplustv.com:3100/sexViewSum?contentSerial={contentSerial}");
             var data = JsonSerializer.Deserialize<SexRateResult[]>(result);
             return data;
         }
@@ -117,7 +117,7 @@ namespace aniplus_api
         public AgeRateResult[] GetAgeRateInformation(int contentSerial)
         {
             WebClient wc = new WebClient();
-            var result = wc.DownloadString($"https://api.aniplustv.com:3100/stillcut?contentSerial={contentSerial}");
+            var result = wc.DownloadString($"https://api.aniplustv.com:3100/ageViewSum?contentSerial={contentSerial}");
             var data = JsonSerializer.Deserialize<AgeRateResult[]>(result);
             return data;
         }
