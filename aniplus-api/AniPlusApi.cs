@@ -61,6 +61,18 @@ namespace aniplus_api
             return data;
         }
 
+        public StarRateResult[] GetStarRateInformation(int contentSerial)
+        {
+            var hwr = CreateWeb("https://api.aniplustv.com:3100/starRating");
+            var str = "{params: {contentSerial: " + contentSerial + "}}";
+            WriteData(hwr, str);
+            var result = ReadData(hwr);
+            var data = JsonSerializer.Deserialize<StarRateResult[]>(result);
+            return data;
+        }
+
+
+
         public AnimeResult[] GetAnimeInformation(int contentSerial)
         {
             WebClient wc = new WebClient();
@@ -86,13 +98,30 @@ namespace aniplus_api
             return data;
         }
 
-        public CharactersResult[] GetStillCutImage(int contentSerial, string userId = "")
+        public StillCutResult[] GetStillCutImage(int contentSerial, string userId = "")
         {
             WebClient wc = new WebClient();
             var result = wc.DownloadString($"https://api.aniplustv.com:3100/stillcut?contentSerial={contentSerial}");
-            var data = JsonSerializer.Deserialize<CharactersResult[]>(result);
+            var data = JsonSerializer.Deserialize<StillCutResult[]>(result);
             return data;
         }
+
+        public SexRateResult[] GetSexRateInformation(int contentSerial)
+        {
+            WebClient wc = new WebClient();
+            var result = wc.DownloadString($"https://api.aniplustv.com:3100/stillcut?contentSerial={contentSerial}");
+            var data = JsonSerializer.Deserialize<SexRateResult[]>(result);
+            return data;
+        }
+
+        public AgeRateResult[] GetAgeRateInformation(int contentSerial)
+        {
+            WebClient wc = new WebClient();
+            var result = wc.DownloadString($"https://api.aniplustv.com:3100/stillcut?contentSerial={contentSerial}");
+            var data = JsonSerializer.Deserialize<AgeRateResult[]>(result);
+            return data;
+        }
+
 
 
     }
