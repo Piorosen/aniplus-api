@@ -22,6 +22,21 @@ namespace TestAniplusApi
         }
 
         [TestMethod]
+        public void SearchTestFailTest()
+        {
+            var api = new aniplus_api.AniPlusApi();
+            var a = api.Search("asdf");
+            if (a.Length == 1)
+            {
+                if (a[0].pageCount == null && a[0].listData.Length == 0)
+                {
+                    return;
+                }
+            }
+            Assert.Fail();
+        }
+
+        [TestMethod]
         public void SearchTestIdolMaster()
         {
             var api = new aniplus_api.AniPlusApi();

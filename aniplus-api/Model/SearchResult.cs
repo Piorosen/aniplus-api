@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace aniplus_api
 {
@@ -24,7 +25,7 @@ namespace aniplus_api
     {
         public int intReturn { get; set; }
         public int con{ get; set; }
-        public int pageCount{ get; set; }
-        public SearchListData[] listData{ get; set; }
+        public int? pageCount{ get; set; }
+        public SearchListData[] listData { get; set; }
     }
 }

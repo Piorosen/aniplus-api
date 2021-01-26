@@ -57,7 +57,12 @@ namespace aniplus_api
 
             WriteData(hwr, str);
             var result = ReadData(hwr);
-            var data = JsonSerializer.Deserialize<SearchResult[]>(result);
+
+            JsonSerializerOptions options = new JsonSerializerOptions
+            {
+                IgnoreNullValues = true,
+            };
+            var data = JsonSerializer.Deserialize<SearchResult[]>(result, options);
             return data;
         }
 
@@ -70,8 +75,6 @@ namespace aniplus_api
             var data = JsonSerializer.Deserialize<StarRateResult[]>(result);
             return data;
         }
-
-
 
         public AnimeResult[] GetAnimeInformation(int contentSerial)
         {
@@ -121,8 +124,6 @@ namespace aniplus_api
             var data = JsonSerializer.Deserialize<AgeRateResult[]>(result);
             return data;
         }
-
-
 
     }
 }

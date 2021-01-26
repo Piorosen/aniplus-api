@@ -6,15 +6,15 @@ namespace aniplus_api
 {
     public class StarRateListData
     {
-        public int star;
-        public int starCount;
+        public int star { get; set; }
+        public int starCount { get; set; }
     }
     public class StarRateResult
     {
-        public int intReturn;
-        public int con;
-        public int maxCount;
-        public int avgCount;
-        public StarRateListData[] listData;
+        public int intReturn { get; set; }
+        public int con { get; set; }
+        public int maxCount { get; set; }
+        public int avgCount { get; set; }
+        public StarRateListData[] listData { get; set; }
     }
 }
