@@ -1,4 +1,5 @@
 using System;
+using aniplus_api;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace TestAniplusApi
@@ -69,5 +70,44 @@ namespace TestAniplusApi
             Assert.Fail();
         }
 
+        [TestMethod]
+        public void AnimeResultCheckFail()
+        {
+            var p = new aniplus_api.AniPlusApi().GetAnimeInformation(2006);
+
+            if (p.Length == 1)
+            {
+                if (p[0].listData.Length == 1)
+                {
+                    if (p[0].listData[0].contentSerial == 2006 && p[0].listData[0].director == "나오야 타카시")
+                    {
+                        return;
+                    }
+                }
+            }
+            Assert.Fail();
+        }
+
+        [TestMethod]
+        public void VideoResultCheck()
+        {
+            var api = new aniplus_api.AniPlusApi();
+            var p = api.GetVideoInformation(0);
+            if (p[0].listData != null)
+            {
+                Assert.Fail();
+            }
+        }
+
+        [TestMethod]
+        public void StillVideo()
+        {
+            var api = new aniplus_api.AniPlusApi();
+            var p = api.GetStillCutImage(1414);
+            if (p[0].listData != null)
+            {
+                Assert.Fail();
+            }
+        }
     }
 }

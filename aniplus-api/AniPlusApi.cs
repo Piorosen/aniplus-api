@@ -32,7 +32,6 @@ namespace aniplus_api
             d.Headers.Add("Accept-Language", "ko,ko-KR;q=0.9,en-US;q=0.8,en;q=0.7,ja;q=0.6");
             return d;
         }
-
         private bool WriteData(HttpWebRequest hwr, string data)
         {
             var en = Encoding.UTF8.GetBytes(data);
@@ -41,7 +40,6 @@ namespace aniplus_api
 
             return true;
         }
-
         private string ReadData(HttpWebRequest hwr)
         {
             using var stream = hwr.GetResponse().GetResponseStream();
@@ -49,6 +47,7 @@ namespace aniplus_api
 
             return reader.ReadToEnd();
         }
+
 
         public SearchResult[] Search(string query, int page = 1, string userId = "")
         {
@@ -58,11 +57,7 @@ namespace aniplus_api
             WriteData(hwr, str);
             var result = ReadData(hwr);
 
-            JsonSerializerOptions options = new JsonSerializerOptions
-            {
-                IgnoreNullValues = true,
-            };
-            var data = JsonSerializer.Deserialize<SearchResult[]>(result, options);
+            var data = JsonSerializer.Deserialize<SearchResult[]>(result);
             return data;
         }
 
