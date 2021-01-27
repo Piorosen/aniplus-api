@@ -10,12 +10,7 @@ namespace aniplus_api
 {
     public class AniPlusApi
     {
-        public AniPlusApi()
-        {
-
-        }
-
-        private HttpWebRequest CreateWeb(string url)
+        private static HttpWebRequest CreateWeb(string url)
         {
             var d = HttpWebRequest.CreateHttp(url);
             d.Method = "POST";
@@ -33,7 +28,7 @@ namespace aniplus_api
             d.Headers.Add("Accept-Language", "ko,ko-KR;q=0.9,en-US;q=0.8,en;q=0.7,ja;q=0.6");
             return d;
         }
-        private bool WriteData(HttpWebRequest hwr, string data)
+        private static bool WriteData(HttpWebRequest hwr, string data)
         {
             var en = Encoding.UTF8.GetBytes(data);
             using var stream = hwr.GetRequestStream();
@@ -41,7 +36,7 @@ namespace aniplus_api
 
             return true;
         }
-        private string ReadData(HttpWebRequest hwr)
+        private static string ReadData(HttpWebRequest hwr)
         {
             using var stream = hwr.GetResponse().GetResponseStream();
             using var reader = new StreamReader(stream);
@@ -50,7 +45,7 @@ namespace aniplus_api
         }
 
 
-        public SearchResult[] Search(string query, int page = 1, string userId = "")
+        public static SearchResult[] Search(string query, int page = 1, string userId = "")
         {
             var hwr = CreateWeb("https://api.aniplustv.com:3100/search");
             var str = "{\"params\":{\"userid\":\"" + userId + "\",\"strFind\":\"" + query + "\",\"gotoPage\":" + page.ToString() + "}}";
@@ -62,7 +57,7 @@ namespace aniplus_api
             return data;
         }
 
-        public StarRateResult[] GetStarRateInformation(int contentSerial)
+        public static StarRateResult[] GetStarRateInformation(int contentSerial)
         {
             var hwr = CreateWeb("https://api.aniplustv.com:3100/starRating");
             var str = "{params: {contentSerial: " + contentSerial + "}}";
@@ -72,7 +67,7 @@ namespace aniplus_api
             return data;
         }
 
-        public AnimeResult[] GetAnimeInformation(int contentSerial)
+        public static AnimeResult[] GetAnimeInformation(int contentSerial)
         {
             WebClient wc = new WebClient();
             var result = wc.DownloadString($"https://api.aniplustv.com:3100/itemInfo?contentSerial={contentSerial}");
@@ -81,7 +76,7 @@ namespace aniplus_api
             return data;
         }
 
-        public VideoResult[] GetVideoInformation(int contentSerial, string userId = "")
+        public static VideoResult[] GetVideoInformation(int contentSerial, string userId = "")
         {
             WebClient wc = new WebClient();
             var result = wc.DownloadString($"https://api.aniplustv.com:3100/itemPart?contentSerial={contentSerial}&userid={userId}");
@@ -89,7 +84,7 @@ namespace aniplus_api
             return data;
         }
 
-        public CharactersResult[] GetCharactersInformation(int contentSerial, string userId = "")
+        public static CharactersResult[] GetCharactersInformation(int contentSerial, string userId = "")
         {
             WebClient wc = new WebClient();
             var result = wc.DownloadString($"https://api.aniplustv.com:3100/stepList?contentSerial={contentSerial}&userid={userId}");
@@ -97,7 +92,7 @@ namespace aniplus_api
             return data;
         }
 
-        public StillCutResult[] GetStillCutImage(int contentSerial, string userId = "")
+        public static StillCutResult[] GetStillCutImage(int contentSerial, string userId = "")
         {
             WebClient wc = new WebClient();
             var result = wc.DownloadString($"https://api.aniplustv.com:3100/stillcut?contentSerial={contentSerial}");
@@ -105,7 +100,7 @@ namespace aniplus_api
             return data;
         }
 
-        public SexRateResult[] GetSexRateInformation(int contentSerial)
+        public static SexRateResult[] GetSexRateInformation(int contentSerial)
         {
             WebClient wc = new WebClient();
             var result = wc.DownloadString($"https://api.aniplustv.com:3100/sexViewSum?contentSerial={contentSerial}");
@@ -113,7 +108,7 @@ namespace aniplus_api
             return data;
         }
 
-        public AgeRateResult[] GetAgeRateInformation(int contentSerial)
+        public static AgeRateResult[] GetAgeRateInformation(int contentSerial)
         {
             WebClient wc = new WebClient();
             var result = wc.DownloadString($"https://api.aniplustv.com:3100/ageViewSum?contentSerial={contentSerial}");

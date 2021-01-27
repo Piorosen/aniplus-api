@@ -1,43 +1,54 @@
 ﻿using System;
+using System.Linq;
 using aniplus_api.Model;
 
 namespace aniplus_api
 {
     public class Ratio
     {
-        protected AgeRateResult[] m_AgeRatio = null;
-        protected SexRateResult[] m_SexRatio = null;
-        protected StarRateResult[] m_StarRatio = null;
+        protected AgeRateListData[] m_AgeRatio = null;
+        protected SexRateListData[] m_SexRatio = null;
+        protected StarRateListData[] m_StarRatio = null;
 
-        public AgeRateResult[] AgeRatio
+        public AgeRateListData[] AgeRatio
         {
             get
             {
                 if (m_AgeRatio == null)
                 {
-                    m_AgeRatio = new AniPlusApi().GetAgeRateInformation(ContentSerial);
+                    var result = AniPlusApi.GetAgeRateInformation(ContentSerial);
+                    m_AgeRatio = result.Where((item) => item.listData != null)
+                        .SelectMany((item) => item.listData)
+                        .ToArray();
                 }
                 return m_AgeRatio;
             }
         }
-        public SexRateResult[] SexRatio
+        public SexRateListData SexRatio
         {
             get
             {
                 if (m_SexRatio == null)
                 {
-                    m_SexRatio = new AniPlusApi().GetSexRateInformation(ContentSerial);
+                    var result = AniPlusApi.GetSexRateInformation(ContentSerial);
+                    m_SexRatio = result.Where((item) => item.listData != null)
+                        .SelectMany((item) => item.listData)
+                        .ToArray();
                 }
-                return m_SexRatio;
+
+                return m_SexRatio.FirstOrDefault();
             }
         }
-        public StarRateResult[] StarRatio
+        public StarRateListData[] StarRatio
         {
             get
             {
                 if (m_StarRatio == null)
                 {
-                    m_StarRatio = new AniPlusApi().GetStarRateInformation(ContentSerial);
+                    var result = AniPlusApi.GetStarRateInformation(ContentSerial);
+                    m_StarRatio = result.Where((item) => item.listData != null)
+                        .SelectMany((item) => item.listData)
+                        .ToArray();
                 }
                 return m_StarRatio;
             }
