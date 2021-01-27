@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace aniplus_api
+namespace aniplus_api.Model
 {
     public class AgeRateListData
     {

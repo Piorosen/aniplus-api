@@ -4,6 +4,7 @@ using System.Net;
 using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using aniplus_api.Model;
 
 namespace aniplus_api
 {

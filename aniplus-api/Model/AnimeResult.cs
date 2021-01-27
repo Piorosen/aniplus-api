@@ -1,5 +1,5 @@
 ﻿using System;
-namespace aniplus_api
+namespace aniplus_api.Model
 {
     public class AnimeListData
     {

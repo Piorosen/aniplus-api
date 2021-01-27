@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
-namespace aniplus_api
+namespace aniplus_api.Model
 {
     public class SearchListData
     {
@@ -17,7 +17,7 @@ namespace aniplus_api
         public string director{ get; set; }
         public string contentSysnopsis{ get; set; }
         public int wishFlag{ get; set; }
-        public int contentPartSerial{ get; set; }
+        public int? contentPartSerial{ get; set; }
         public string subTitle{ get; set; }
     }
 

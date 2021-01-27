@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using aniplus_api;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -87,6 +88,15 @@ namespace TestAniplusApi
             }
             Assert.Fail();
         }
+        //1414
+        [TestMethod]
+        public void ssss()
+        {
+            var api = new aniplus_api.AniPlusApi();
+            var p = api.GetCharactersInformation(1414);
+
+        }
+
 
         [TestMethod]
         public void VideoResultCheck()
@@ -107,6 +117,23 @@ namespace TestAniplusApi
             if (p[0].listData != null)
             {
                 Assert.Fail();
+            }
+        }
+
+        [TestMethod]
+        public void aaa()
+        {
+            var search = new AniplusSeach();
+            var list = search.Search("소드 아트 온라인");
+
+            foreach (var anime in list)
+            {
+                Console.WriteLine(anime.Info.title);
+                foreach (var video in anime.Videos.Reverse())
+                {
+                    Console.Write("\t");
+                    Console.WriteLine(video.data.subTitle);
+                }
             }
         }
     }
