@@ -6,7 +6,7 @@ namespace aniplus_api
 {
     sealed public class Anime
     {
-        public Video[] Videos
+        public VideoListData[] Videos
         {
             get
             {
@@ -16,13 +16,12 @@ namespace aniplus_api
                     m_Video = result.Select((item) => item.listData)
                         .Where((item) => item != null)
                         .SelectMany((item) => item)
-                        .Select((item) => new Video(item))
                         .ToArray();
                 }
                 return m_Video;
             }
         }
-        public Character[] Characters
+        public CharacterListData[] Characters
         {
             get
             {
@@ -32,7 +31,6 @@ namespace aniplus_api
                     m_Characters = result.Select((item) => item.listData)
                         .Where((item) => item != null)
                         .SelectMany((item) => item)
-                        .Select((item) => new Character())
                         .ToArray();
                 }
                 return m_Characters;
@@ -49,7 +47,7 @@ namespace aniplus_api
                 return m_Ratio;
             }
         }
-        public StillCut[] StillCuts
+        public StillCutListData[] StillCuts
         {
             get
             {
@@ -59,7 +57,6 @@ namespace aniplus_api
                     m_StillCuts = result.Select((item) => item.listData)
                         .Where((item) => item != null)
                         .SelectMany((item) => item)
-                        .Select((item) => new StillCut())
                         .ToArray();
                 }
                 return m_StillCuts;
@@ -81,10 +78,10 @@ namespace aniplus_api
             }
         }
 
-        private Video[] m_Video = null;
-        private Character[] m_Characters;
+        private VideoListData[] m_Video = null;
+        private CharacterListData[] m_Characters;
         private Ratio m_Ratio = null;
-        private StillCut[] m_StillCuts = null;
+        private StillCutListData[] m_StillCuts = null;
         private AnimeListData[] m_MoreInfo = null;
 
         public SearchListData Info { get; private set; }

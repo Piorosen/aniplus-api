@@ -38,8 +38,9 @@ namespace aniplus_api
         }
         private static string ReadData(HttpWebRequest hwr)
         {
-            using var stream = hwr.GetResponse().GetResponseStream();
-            using var reader = new StreamReader(stream);
+            using var stream = hwr.GetResponse();
+            using var res = stream.GetResponseStream();
+            using var reader = new StreamReader(res);
 
             return reader.ReadToEnd();
         }
@@ -60,7 +61,7 @@ namespace aniplus_api
         public static StarRateResult[] GetStarRateInformation(int contentSerial)
         {
             var hwr = CreateWeb("https://api.aniplustv.com:3100/starRating");
-            var str = "{params: {contentSerial: " + contentSerial + "}}";
+            var str = "{\"params\": {\"contentSerial\": " + contentSerial + "}}";
             WriteData(hwr, str);
             var result = ReadData(hwr);
             var data = JsonSerializer.Deserialize<StarRateResult[]>(result);

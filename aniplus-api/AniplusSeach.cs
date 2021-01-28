@@ -6,12 +6,11 @@ namespace aniplus_api
 {
     public class AniplusSeach
     {
-
         public AniplusSeach()
         {
         }
 
-        public Anime[] Search(string query, int page = 1, string userId = "")
+        public static Anime[] Search(string query, int page = 1, string userId = "")
         {
             var searchResults = AniPlusApi.Search(query, page, userId);;
 

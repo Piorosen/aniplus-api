@@ -118,17 +118,87 @@ namespace TestAniplusApi
         [TestMethod]
         public void aaa()
         {
-            var search = new AniplusSeach();
-            var list = search.Search("아이돌 마스터");
+            var list = AniplusSeach.Search("아이돌 마스터");
             foreach (var anime in list)
             {
                 Console.WriteLine(anime.Info.title);
                 foreach (var video in anime.Videos.Reverse())
                 {
                     Console.Write("\t");
-                    Console.WriteLine(video.data.subTitle);
+                    Console.WriteLine(video.subTitle);
                 }
             }
         }
+
+        [TestMethod]
+        public void AllTest()
+        {
+            var anilist = AniplusSeach.Search("소드 아트 온라인");
+            foreach (var anime in anilist)
+            {
+                Console.WriteLine(anime.Info.title);
+                var more = anime.MoreInfo.GetType().GetProperties();
+                Console.WriteLine("\tMoreInfo: -");
+                foreach (var m in more)
+                {
+                    Console.Write("\t\t");
+                    Console.WriteLine($"{m.Name} : {m.GetValue(anime.MoreInfo)}");
+                }
+
+                Console.WriteLine("\tVideoInfo: -");
+                foreach (var m in anime.Videos)
+                {
+                    var obj = m.GetType().GetProperties();
+                    foreach (var t in obj)
+                    {
+                        Console.Write("\t\t");
+                        Console.WriteLine($"{t.Name} : {t.GetValue(m)}");
+                    }
+                }
+
+                Console.WriteLine("\tCharactersInfo: -");
+                foreach (var m in anime.Characters)
+                {
+                    var obj = m.GetType().GetProperties();
+                    foreach (var t in obj)
+                    {
+                        Console.Write("\t\t");
+                        Console.WriteLine($"{t.Name} : {t.GetValue(m)}");
+                    }
+                }
+
+                Console.WriteLine("\tStillCuts: -");
+                foreach (var m in anime.StillCuts)
+                {
+                    var obj = m.GetType().GetProperties();
+                    foreach (var t in obj)
+                    {
+                        Console.Write("\t\t");
+                        Console.WriteLine($"{t.Name} : {t.GetValue(m)}");
+                    }
+                }
+
+                var ratio = anime.Ratio;
+                Console.WriteLine("\tRatio: -");
+                Console.WriteLine($"\t\tSexRatio: (man: {ratio.SexRatio.man}, woman: {ratio.SexRatio.woman})");
+
+
+                Console.WriteLine($"\t\tStarRatio: -");
+                foreach (var item in anime.Ratio.StarRatio)
+                {
+                    Console.WriteLine($"\t\t\t점수 : {item.star}, 인원 {item.starCount}");
+                }
+
+                Console.WriteLine($"\t\tAgeRatio: -");
+                foreach (var item in anime.Ratio.AgeRatio)
+                {
+                    foreach (var m in item.GetType().GetProperties())
+                    {
+                        Console.WriteLine($"\t\t\t나이 : {m.Name}, 인원 {m.GetValue(item)}");
+                    }
+                }
+            }
+        }
+
     }
 }
