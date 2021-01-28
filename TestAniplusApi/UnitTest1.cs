@@ -1,6 +1,6 @@
 using System;
 using System.Linq;
-using aniplus_api;
+using Aniplus_Api;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace TestAniplusApi
@@ -14,7 +14,7 @@ namespace TestAniplusApi
             var a = AniPlusApi.Search("3D 그녀 리얼걸");
             if (a.Length == 1)
             {
-                if (a[0].pageCount == 1 && a[0].listData[1].contentSerial == 2006)
+                if (a[0].pageCount == 1 && a[0].listData[0].contentSerial == 2006)
                 {
                     return;
                 }
@@ -25,7 +25,7 @@ namespace TestAniplusApi
         [TestMethod]
         public void SearchTestFailTest()
         {
-            var api = new aniplus_api.AniPlusApi();
+            var api = new Aniplus_Api.AniPlusApi();
             var a = AniPlusApi.Search("asdf");
             if (a.Length == 1)
             {
@@ -43,7 +43,7 @@ namespace TestAniplusApi
             var a = AniPlusApi.Search("아이돌 마스터");
             if (a.Length == 1)
             {
-                if (a[0].listData.Length == 12)
+                if (a[0].listData.Length == 10)
                 {
                     return;
                 }

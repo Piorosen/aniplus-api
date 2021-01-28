@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace aniplus_api
+namespace Aniplus_Api
 {
     public class AniplusSeach
     {

@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Linq;
-using aniplus_api.Model;
+using Aniplus_Api.Model;
 
-namespace aniplus_api
+namespace Aniplus_Api
 {
     public class Ratio
     {

@@ -1,5 +1,5 @@
 ﻿using System;
-namespace aniplus_api
+namespace Aniplus_Api
 {
     public class Video
     {

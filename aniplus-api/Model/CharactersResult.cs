@@ -1,5 +1,5 @@
 ﻿using System;
-namespace aniplus_api.Model
+namespace Aniplus_Api.Model
 {
     public class CharacterListData
     {

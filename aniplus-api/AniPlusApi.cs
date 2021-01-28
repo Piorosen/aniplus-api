@@ -4,9 +4,9 @@ using System.Net;
 using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
-using aniplus_api.Model;
+using Aniplus_Api.Model;
 
-namespace aniplus_api
+namespace Aniplus_Api
 {
     public class AniPlusApi
     {
