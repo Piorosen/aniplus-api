@@ -12,7 +12,7 @@ namespace Aniplus_Api.Model
     public class StarRateResult
     {
         public int intReturn { get; set; }
-        public int con { get; set; }
+        public int? con { get; set; }
         public int maxCount { get; set; }
         public int avgCount { get; set; }
         public StarRateListData[] listData { get; set; }

@@ -24,5 +24,21 @@ namespace Aniplus_Api
                 .Select((item) => new Anime(item))
                 .ToArray();
         }
+        
+        public static Anime Search(int contentSeiral)
+        {
+            var searchResult = AniPlusApi.GetAnimeInformation(contentSeiral);
+            if (searchResult.Length == 0)
+            {
+                return null;
+            }
+
+            return new Anime(
+                    searchResult.Where((item) => item.listData != null)
+                        .SelectMany((item) => item.listData)
+                        .FirstOrDefault()
+                    );
+        }
+
     }
 }

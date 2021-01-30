@@ -90,5 +90,9 @@ namespace Aniplus_Api
         {
             Info = item;
         }
+        public Anime(AnimeListData moreInfo)
+        {
+            Info = new SearchListData(moreInfo);
+        }
     }
 }

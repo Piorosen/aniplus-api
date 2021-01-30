@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestAniplusApi", "TestAnipl
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aniplus", "Aniplus\Aniplus.csproj", "{4074DED2-6453-4EE9-9145-079D8A4FD84D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestCuiAniplus", "TestCuiAniplus\TestCuiAniplus.csproj", "{8FF301E3-F69C-490F-97E6-8A1F62361E5F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{4074DED2-6453-4EE9-9145-079D8A4FD84D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4074DED2-6453-4EE9-9145-079D8A4FD84D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4074DED2-6453-4EE9-9145-079D8A4FD84D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8FF301E3-F69C-490F-97E6-8A1F62361E5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8FF301E3-F69C-490F-97E6-8A1F62361E5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8FF301E3-F69C-490F-97E6-8A1F62361E5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8FF301E3-F69C-490F-97E6-8A1F62361E5F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
