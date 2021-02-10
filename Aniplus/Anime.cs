@@ -16,6 +16,7 @@ namespace Aniplus_Api
                     m_Video = result.Select((item) => item.listData)
                         .Where((item) => item != null)
                         .SelectMany((item) => item)
+                        .OrderBy((item) => item.part)
                         .ToArray();
                 }
                 return m_Video;
