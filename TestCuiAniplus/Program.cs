@@ -12,6 +12,7 @@ namespace TestCuiAniplus
             Console.WriteLine("search \"애니메이션 제목\"");
             Console.WriteLine("download 2006");
             Console.WriteLine("download 2006 > 저장 폴더");
+            Console.WriteLine("dlpath 2006 C:\\foo");
         }
 
         static void SearchHelp(string command)
@@ -22,6 +23,9 @@ namespace TestCuiAniplus
             Console.WriteLine("");
             Console.WriteLine("example: download 2006");
             Console.WriteLine("example: download 2006 > 저장 폴더");
+            Console.WriteLine("");
+            Console.WriteLine("example: dlpath 2006 C:\\foo");
+
         }
 
         static void Download(Anime anime, string output)
@@ -200,7 +204,7 @@ namespace TestCuiAniplus
                             }
                             int fSpace = command.IndexOf(' ');
                             int sSpace = command.IndexOf(' ', fSpace + 1);
-                            string path = command.Substring(sSpace + 1).Trim();
+                            string path = command.Substring(sSpace + 1).Trim(' ', '\t', '\"', '\'', '\n', '\r');
                             int rr = int.Parse(command.Substring(fSpace, sSpace - fSpace).Trim());
                             var anime = AniplusSeach.Search(rr);
                             Download(anime, Path.Combine(path, anime.Info.title + ".txt"));
