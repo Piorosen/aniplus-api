@@ -190,6 +190,26 @@ namespace TestCuiAniplus
                             Console.WriteLine($"{item.Info.contentSerial} - {item.Info.title}");
                         }
                         break;
+                    case "dlpath":
+                        try
+                        {
+                            if (command.IndexOf(' ') == -1)
+                            {
+                                SearchHelp(command);
+                                break;
+                            }
+                            int fSpace = command.IndexOf(' ');
+                            int sSpace = command.IndexOf(' ', fSpace + 1);
+                            string path = command.Substring(sSpace + 1).Trim();
+                            int rr = int.Parse(command.Substring(fSpace, sSpace - fSpace).Trim());
+                            var anime = AniplusSeach.Search(rr);
+                            Download(anime, Path.Combine(path, anime.Info.title + ".txt"));
+                        }catch
+                        {
+                            SearchHelp(command);
+                        }
+                        break;
+
 
                     case "download":
                         if (command.IndexOf(' ') == -1)
