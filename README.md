@@ -3,7 +3,7 @@
 > 단독으로 사용이 불가능 하며, 라이브러리 형식으로 제공이 됩니다. 라이브러리를 이용하여 프로그램을 개발 하시면 됩니다.<br>
 > 테스트를 위한 테스트 프로젝트는 [CUI 버전](https://github.com/Piorosen/aniplus-api/tree/main/TestCuiAniplus) 이고, [UnitTest 버전](https://github.com/Piorosen/aniplus-api/tree/main/TestAniplusApi) 형식으로 제공이 되고 있습니다.<br>
 > 바로 사용이 필요하시다면 TestCuiAniplus 를 빌드 하셔서 사용하시면 됩니다.<br>
-> 개발 일자는 2021년 2월 1일에 마감을 하였으며, 변경 사안및 수정은 Issue에 등록해 주세요.<br>
+> 개발 일자는 2021년 2월 10일에 마감을 하였으며, 변경 사안및 수정은 Issue에 등록해 주세요.<br>
 
 ## Dependencies
 - .Net Core 3.1
@@ -82,3 +82,7 @@ anime.Info
 
 ## [Sample](https://github.com/Piorosen/aniplus-api/blob/main/TestAniplusApi/UnitTest1.cs#L134)
   - Wrapped 된 API를 이용하여 개발한하는 방법에 대하여 기술 함.
+
+
+## 수정안
+- 2021. 02. 10: 비디오 
