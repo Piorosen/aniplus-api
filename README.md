@@ -10,6 +10,11 @@
 `2024. 05. 10` 에 추가 작성되었습니다.
 정상적으로 동작하는지 확인하기 위해서 Badge 를 추가하였습니다.
 
+간단하게 다시 재 분석을 수행한 결과, 내부 데이터 검증용 토큰을 추가한것으로 확인이 되어졌습니다.
+그러나 내부 검증용 토큰은 현재 시간을 기반과 `Base64` 인코딩으로 이뤄져있기 때문에 쉽게 다시 재 구축이 가능합니다.
+
+따라서, 따로 문의를 주시거나 필요하시다면 연락을 주시면 수정을 하도록 하겠습니다.
+
 [![.NET](https://github.com/Piorosen/aniplus-api/actions/workflows/dotnet.yml/badge.svg)](https://github.com/Piorosen/aniplus-api/actions/workflows/dotnet.yml)
 
 ## Dependencies
