@@ -5,6 +5,13 @@
 > 바로 사용이 필요하시다면 TestCuiAniplus 를 빌드 하셔서 사용하시면 됩니다.<br>
 > 개발 일자는 2021년 2월 10일에 마감을 하였으며, 변경 사안및 수정은 Issue에 등록해 주세요.<br>
 
+# 현재 동작 확인 유무
+
+`2024. 05. 10` 에 추가 작성되었습니다.
+정상적으로 동작하는지 확인하기 위해서 Badge 를 추가하였습니다.
+
+[![.NET](https://github.com/Piorosen/aniplus-api/actions/workflows/dotnet.yml/badge.svg)](https://github.com/Piorosen/aniplus-api/actions/workflows/dotnet.yml)
+
 ## Dependencies
 - .Net Core 3.1
 
